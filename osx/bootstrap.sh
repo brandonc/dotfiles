@@ -77,25 +77,19 @@ set_defaults () {
   then
     newhostname=$hostname
   fi
-  
+
   sudo scutil --set ComputerName "$newhostname"
   sudo scutil --set HostName "$newhostname"
   sudo scutil --set LocalHostName "$newhostname"
   sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "$newhostname"
 }
 
-install_fonts () {
-  find $DIR/fonts -name *.otf -exec cp -n {} $HOME/Library/Fonts/ \;
-}
-
 if test "$(uname)" = "Darwin"
 then
   set_defaults
-  install_fonts
 
   # setup terminal
-
-  # Use a modified version of the Solarized Dark theme by default in Terminal.app
+  # Use a modified version of the Pro theme by default in Terminal.app
   osascript <<EOD
   tell application "Terminal"
     local allOpenedWindows
