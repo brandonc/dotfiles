@@ -9,6 +9,7 @@ brew 'openssl'
 brew 'pass'
 
 cask 'firefox'
+cask 'github'
 cask 'google-chrome'
 cask 'slack'
 cask 'steam'
