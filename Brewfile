@@ -9,6 +9,7 @@ brew 'jq'
 brew 'nodenv'
 brew 'openssl'
 brew 'pass'
+brew 'yarn', args: ['without-node']
 
 cask 'firefox'
 cask 'github'
