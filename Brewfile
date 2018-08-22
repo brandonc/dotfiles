@@ -3,6 +3,7 @@ cask_args appdir: '/Applications'
 tap 'homebrew/bundle'
 
 brew 'awscli'
+brew 'direnv'
 brew 'git'
 brew 'jq'
 brew 'nodenv'
