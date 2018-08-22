@@ -1,0 +1,72 @@
+#!/bin/bash
+
+if [ -z "$DEVMODE_HOME" ]; then
+	DEVMODE_HOME=$HOME/devmode
+fi
+
+if [ "$1" == "--replicaset" ] && [ "$2" == "--init" ]; then
+	echo "Adding primary ..."
+	mongo --eval 'rs.initiate({ _id: "n", members: [{ _id: 0, host: "127.0.0.1:27017" }] }); printjson(rs.status())'
+	echo "Adding secondary ..."
+	sleep 5
+	mongo --eval 'rs.add("127.0.0.1:27018"); printjson(rs.status())'
+	echo "Adding secondary ..."
+	sleep 5
+	mongo --eval 'rs.add("127.0.0.1:27019"); printjson(rs.status())'
+	echo "Setting priority ..."
+	sleep 5
+	mongo --eval 'cfg = rs.conf(); cfg.members[0].priority = 1; cfg.members[1].priority = 0.5; cfg.members[2].priority = 0.5; rs.reconfig(cfg); printjson(rs.status())'
+	exit
+elif [ "$1" == "--stop" ]; then
+	$DEVMODE_HOME/pgsql/bin/pg_ctl -D $DEVMODE_HOME/pgsql/data -l $DEVMODE_HOME/pgsql/logfile stop
+	exit
+fi
+
+if [ -d $DEVMODE_HOME/pgsql ]; then
+	$DEVMODE_HOME/pgsql/bin/pg_ctl -D $DEVMODE_HOME/pgsql/data -l $DEVMODE_HOME/pgsql/logfile start
+fi
+
+sudo iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 443 -j REDIRECT --to-port 3443
+sudo iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 3000
+sudo iptables -t nat -A OUTPUT -o lo -p tcp --dport 443 -j REDIRECT --to-port 3443
+
+	tmux new-session -s "devmode" -d
+
+if [ "$1" == "--replicaset" ]; then
+	if [ ! -d $DEVMODE_HOME/dbn0 ]; then
+		mkdir $DEVMODE_HOME/dbn0
+	fi
+
+	if [ ! -d $DEVMODE_HOME/dbn1 ]; then
+		mkdir $DEVMODE_HOME/dbn1
+	fi
+
+	if [ ! -d $DEVMODE_HOME/dbn2 ]; then
+		mkdir $DEVMODE_HOME/dbn2
+	fi
+
+	sleep 2
+	tmux new-window -n "mongo [replSet]" "mongod --dbpath $DEVMODE_HOME/dbn0 --port 27017 --replSet n"
+	sleep 2
+	tmux split-window "mongod --dbpath $DEVMODE_HOME/dbn1 --port 27018 --replSet n"
+	sleep 2
+	tmux split-window "mongod --dbpath $DEVMODE_HOME/dbn2 --port 27019 --replSet n"
+else
+	if [ ! -d $DEVMODE_HOME/db ]; then
+		mkdir $DEVMODE_HOME/db
+	fi
+
+	tmux new-window -n "mongo" "mongod --dbpath $DEVMODE_HOME/db"
+	sleep 2
+fi
+
+tmux new-window -n "redis" "redis-server"
+tmux split-window "redis-cli"
+tmux new-window -n "webpack" "cd $HOME/src/napa; npm run development"
+tmux new-window -c "$HOME/src/napa"
+tmux split-window -c "$HOME/src/napa" -h "bundle exec sidekiq ; read"
+tmux split-window -c "$HOME/src/napa" -v "bundle exec rails s ; read"
+tmux split-window -c "$HOME/src/napa" -v "bin/ravrepl ; read"
+tmux select-window -t 0
+
+tmux -2 attach-session -d

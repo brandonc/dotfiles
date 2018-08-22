@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+set -e
+
+install_homebrew () {
+  echo 'installing homebrew'
+
+  if test ! $(which brew)
+  then
+    if test "$(uname)" = "Darwin"
+    then
+      ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    else
+      echo "skipping homebrew on Linux"
+      return 1
+    fi
+  fi
+
+  echo 'brew bundle'
+  brew bundle
+}
+
+bootstrap_others () {
+  find . -name bootstrap.sh | while read bootstrapper ; do echo "running ${bootstrapper}" ; sh -c "${bootstrapper}" ; done
+}
+
+install_homebrew
+bootstrap_others
