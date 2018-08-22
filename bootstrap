@@ -15,9 +15,6 @@ install_homebrew () {
       return 1
     fi
   fi
-
-  echo 'brew bundle'
-  brew bundle
 }
 
 bootstrap_others () {

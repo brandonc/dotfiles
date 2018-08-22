@@ -115,12 +115,18 @@ install_dotfiles () {
   done
 }
 
+install_bundle () {
+  info 'running brew bundle'
+  brew bundle
+}
+
 install_others () {
   info 'running installers'
   find . -name install.sh | while read installer ; do info "running ${installer}" ; sh -c "${installer}" ; done
 }
 
 install_dotfiles
+install_bundle
 install_others
 
 success 'complete'
