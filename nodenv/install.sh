@@ -1,6 +1,5 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 set -e
 
-echo "initializing nodenv"
-nodenv init
+nodenv init > /dev/null 2>&1
