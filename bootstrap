@@ -26,3 +26,5 @@ bootstrap_others () {
 
 install_homebrew
 bootstrap_others
+
+sh -c ./install
