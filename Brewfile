@@ -4,6 +4,7 @@ tap 'homebrew/bundle'
 
 brew 'awscli'
 brew 'bat'
+brew 'diff-so-fancy'
 brew 'direnv'
 brew 'fzf'
 brew 'git'
