@@ -36,3 +36,6 @@ alias g="git"
 
 # File size
 alias fs="stat -f \"%z bytes\""
+
+# cat(1) with color and line numbers/git integration
+alias cat="bat"
