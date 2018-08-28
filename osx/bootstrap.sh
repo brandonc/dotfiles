@@ -20,6 +20,9 @@ set_defaults () {
   defaults write NSGlobalDomain KeyRepeat -int 1
   defaults write NSGlobalDomain InitialKeyRepeat -int 10
 
+  # Disable smart quotes
+  defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
+
   # Finder: Always open everything in list view
   defaults write com.apple.Finder FXPreferredViewStyle Nlsv
 
