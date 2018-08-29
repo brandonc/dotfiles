@@ -14,6 +14,7 @@
 	excludesfile = ~/.gitignore
 	attributesfile = ~/.gitattributes
 	pager = diff-so-fancy | less --tabs=4 -RFX
+	editor = code --wait
 [color "branch"]
 	current = yellow reverse
 	local = yellow
