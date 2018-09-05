@@ -3,6 +3,8 @@ cask_args appdir: '/Applications'
 tap 'homebrew/bundle'
 
 brew 'awscli'
+brew 'bash'
+brew 'bash-completion'
 brew 'bat'
 brew 'diff-so-fancy'
 brew 'direnv'
