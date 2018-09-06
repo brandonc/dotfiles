@@ -76,7 +76,7 @@ set_defaults () {
   hostname=$(scutil --get ComputerName)
   read -r -p "Name the computer [$hostname]: " newhostname </dev/tty
 
-  if [ -z "$newhostname"]
+  if [ -z "$newhostname" ]
   then
     newhostname=$hostname
   fi
