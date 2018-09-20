@@ -15,6 +15,7 @@ brew 'jq'
 brew 'nodenv'
 brew 'openssl'
 brew 'pass'
+brew 'tokei'
 brew 'yarn', args: ['without-node']
 
 cask 'firefox'
