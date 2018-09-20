@@ -1,6 +1,7 @@
 function jira() {
   if test "$(uname)" = "Darwin"
-	  open "https://jira.mesosphere.com/browse/$1"
+  then
+    open "https://jira.mesosphere.com/browse/$1"
   else
     xdg-open "https://jira.mesosphere.com/browse/$1"
   fi
