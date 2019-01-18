@@ -54,6 +54,7 @@
 [user]
 	email = brandon.croft@gmail.com
 	name = Brandon Croft
+	signingkey = B01E32423322EB9D
 [push]
 	default = simple
 [pull]
@@ -65,3 +66,5 @@
 	smudge = git-lfs smudge -- %f
 [commit]
 	gpgsign = true
+[gpg]
+	program = gpg
