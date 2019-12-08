@@ -10,7 +10,11 @@ fi
 
 # Key bindings
 # ------------
-source "/usr/local/opt/fzf/shell/key-bindings.bash"
+if test "$(uname)" = "Darwin"; then
+  source "/usr/local/opt/fzf/shell/key-bindings.bash"
+else
+  source "/usr/share/doc/fzf/examples/key-bindings.bash"
+fi
 
 # Preview alias
 alias preview="fzf --preview 'bat --color \"always\" {}'"

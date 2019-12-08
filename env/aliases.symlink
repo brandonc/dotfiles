@@ -41,3 +41,9 @@ alias fs="stat -f \"%z bytes\""
 alias cat="bat"
 
 alias top="htop"
+
+if [[ "$OSTYPE" =~ ^darwin ]]; then
+	alias clip=pbcopy
+else
+	alias clip="xclip -sel clip"
+fi
