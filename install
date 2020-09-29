@@ -116,8 +116,12 @@ install_dotfiles () {
 }
 
 install_bundle () {
-  info 'running brew bundle'
-  brew bundle
+  if [[ "$OSTYPE" =~ ^darwin ]]; then
+    info 'running brew bundle'
+    brew bundle
+  else
+    sudo apt install git vim pass bat npm direnv fzf htop jq
+  fi
 }
 
 install_others () {

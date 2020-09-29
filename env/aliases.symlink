@@ -47,3 +47,5 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
 else
 	alias clip="xclip -sel clip"
 fi
+
+alias jira="npx jira"

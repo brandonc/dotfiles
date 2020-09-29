@@ -13,7 +13,9 @@ export LANG="en_US"
 [ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2)" scp sftp ssh
 
 # Ensure /usr/local/bin appears before /usr/bin
-export PATH="/usr/local/bin:/usr/local/sbin:$HOME/.nodenv/bin:$HOME/bin:/usr/local/go/bin:$PATH"
+export GOBIN="$HOME/go/bin"
+export GOPATH="$HOME/go"
+export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/go/bin:/usr/local/kubebuilder/bin:$HOME/.nodenv/bin:$HOME/bin:$HOME/.local/bin:usr/local/go/bin:$PATH:$HOME/.nodenv/versions/12.9.1/bin:$GOBIN"
 
 # Add nodenv/direnv hooks
 eval "$(direnv hook bash)"
