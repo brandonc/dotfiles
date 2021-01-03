@@ -16,10 +16,8 @@ brew 'nodenv'
 brew 'openssl'
 brew 'pass'
 brew 'tokei'
-brew 'yarn', args: ['without-node']
 brew 'youtube-dl'
 
-cask 'firefox'
 cask 'github'
 cask 'google-chrome'
 cask 'postman'
