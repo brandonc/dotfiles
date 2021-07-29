@@ -68,4 +68,6 @@
 [commit]
 	gpgsign = true
 [gpg]
-	program = gpg
+	program = /usr/local/MacGPG2/bin/gpg
+[init]
+	defaultBranch = main
