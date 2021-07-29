@@ -1,0 +1,49 @@
+{
+	"name": "vscode-markdown-table-format",
+	"displayName": "MarkDown Table Format",
+	"description": "Formats MarkDown tables so that all columns have the same width",
+	"version": "1.0.1",
+	"license": "MIT",
+	"categories": [
+		"Other"
+	],
+	"keywords": [
+		"markdown",
+		"table",
+		"intellisense"
+	],
+	"publisher": "TomasHubelbauer",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/TomasHubelbauer/vscode-markdown-table-format.git"
+	},
+	"engines": {
+		"vscode": "^1.22.0"
+	},
+	"activationEvents": [
+		"onLanguage:markdown"
+	],
+	"main": "./out/extension",
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"postinstall": "node ./node_modules/vscode/bin/install",
+		"test": "npm run compile && node ./node_modules/vscode/bin/test"
+	},
+	"devDependencies": {
+		"@types/mocha": "^2.2.42",
+		"@types/node": "^7.0.43",
+		"tslint": "^5.8.0",
+		"typescript": "^2.6.1",
+		"vscode": "^1.1.6"
+	},
+	"dependencies": {
+		"markdown-dom": "0.0.5"
+	},
+	"__metadata": {
+		"id": "e0255d98-d531-4176-86ef-bf26208f3240",
+		"publisherId": "870701d7-9211-4b5e-91fa-cc3687754393",
+		"publisherDisplayName": "Tomas Hubelbauer"
+	}
+}
