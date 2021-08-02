@@ -1,6 +1,6 @@
 # Load ~/.extra, ~/.bash_prompt, ~/.exports, ~/.aliases and ~/.functions
 # ~/.extra can be used for settings you don’t want to commit
-for file in $HOME/.{bash_prompt,exports,aliases,functions,fzf.bash,mesosphere}; do
+for file in $HOME/.{bash_prompt,exports,aliases,functions,fzf.bash}; do
 	[ -r "$file" ] && source "$file"
 done
 unset file
@@ -15,7 +15,7 @@ export LANG="en_US"
 # Ensure /usr/local/bin appears before /usr/bin
 export GOBIN="$HOME/go/bin"
 export GOPATH="$HOME/go"
-export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/go/bin:/usr/local/kubebuilder/bin:$HOME/.nodenv/bin:$HOME/bin:$HOME/.local/bin:usr/local/go/bin:$PATH:$HOME/.nodenv/versions/12.9.1/bin:$GOBIN"
+export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/go/bin:$HOME/.nodenv/bin:$HOME/bin:$HOME/.local/bin:usr/local/go/bin:$PATH:$GOBIN"
 
 # Add nodenv/direnv hooks
 eval "$(direnv hook bash)"
@@ -24,7 +24,4 @@ eval "$(nodenv init -)"
 # Add bash completion scripts
 [[ -r "/usr/local/etc/bash_completion.d/pass" ]] && source "/usr/local/etc/bash_completion.d/pass"
 
-
-# Added by serverless binary installer
-export PATH="$HOME/.serverless/bin:$PATH"
-export PATH="/usr/local/opt/python@3.8/bin:$PATH"
+eval "$(rbenv init -)"
