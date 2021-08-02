@@ -15,7 +15,7 @@ brew 'jq'
 brew 'nodenv'
 brew 'openssl'
 brew 'pass'
-brew 'tokei'
+brew 'tokei' # code language / analysis
 brew 'youtube-dl'
 brew 'rbenv'
 
@@ -24,3 +24,4 @@ cask 'postman'
 cask 'slack'
 cask 'visual-studio-code'
 cask 'firefox'
+cask 'rectangle' # window management
