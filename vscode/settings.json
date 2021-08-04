@@ -1,7 +1,8 @@
 {
     "editor.dragAndDrop": false,
-    "editor.fontFamily": "IBM Plex Mono",
-    "editor.lineHeight": 20,
+    "editor.fontFamily": "Hack",
+    "editor.fontSize": 14,
+    "editor.lineHeight": 0,
     "editor.fontWeight": "100",
     "editor.minimap.enabled": false,
     "editor.renderIndentGuides": false,
@@ -14,5 +15,5 @@
     "workbench.statusBar.feedback.visible": false,
     "workbench.colorTheme": "Monokai Pro",
     "workbench.iconTheme": "Monokai Pro Icons",
-    "window.zoomLevel": 0,
+    "window.zoomLevel": 0
 }
