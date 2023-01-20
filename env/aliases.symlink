@@ -48,4 +48,4 @@ else
 	alias clip="xclip -sel clip"
 fi
 
-alias jira="npx jira"
+alias be="bundle exec"

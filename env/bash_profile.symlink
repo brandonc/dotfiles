@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Prefer US English and use UTF-8
 export LC_ALL="en_US.UTF-8"
 export LANG="en_US"
@@ -21,5 +23,14 @@ export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/go/bin:$HOME/.nodenv/bin:
 eval "$(direnv hook bash)"
 eval "$(nodenv init -)"
 
+ssh-add --apple-use-keychain "$HOME/.ssh/id_rsa"
+
 # Add bash completion scripts
 [[ -r "/usr/local/etc/bash_completion.d/pass" ]] && source "/usr/local/etc/bash_completion.d/pass"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/brandonc/Downloads/google-cloud-sdk/path.bash.inc' ]; then . '/Users/brandonc/Downloads/google-cloud-sdk/path.bash.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/brandonc/Downloads/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/brandonc/Downloads/google-cloud-sdk/completion.bash.inc'; fi
+export PATH="/usr/local/opt/openssl@3/bin:$PATH"

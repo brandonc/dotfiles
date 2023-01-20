@@ -1,7 +1,11 @@
-# @gf3’s Sexy Bash Prompt, inspired by “Extravagant Zsh Prompt”
+#!/bin/bash
+
+# @gf3's Bash Prompt, inspired by “Extravagant Zsh Prompt”
 # Shamelessly copied from https://github.com/gf3/dotfiles
 
 default_username='brandonc'
+
+export PROMPT_COMMAND='history -a; history -r'
 
 if [[ $COLORTERM = gnome-* && $TERM = xterm ]] && infocmp gnome-256color >/dev/null 2>&1; then
 	export TERM=gnome-256color

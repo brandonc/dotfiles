@@ -1,2 +1,13 @@
 eval "$(tfcdev rc)"
 eval "$(rbenv init -)"
+
+extract_token () {
+  cat ~/.terraform.d/credentials.tfrc.json | jq '.credentials.'\"$1\"'.token' -r
+}
+
+alias tfc_token='extract_token "app.terraform.io"'
+alias tfc_staging_token='extract_token "app.staging.terraform.io"'
+alias tfc_local_token='extract_token "$TFC_LOCAL"'
+alias tfc_local_hostname='echo $TFC_LOCAL'
+
+export NGROK_REGION=us

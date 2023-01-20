@@ -1,1 +1,3 @@
 .DS_Store
+secrets.symlink
+vscode/vscode.symlink/extensions/*
