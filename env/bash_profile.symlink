@@ -15,7 +15,7 @@ export LANG="en_US"
 # Ensure /usr/local/bin appears before /usr/bin
 export GOBIN="$HOME/go/bin"
 export GOPATH="$HOME/go"
-export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/go/bin:/usr/local/kubebuilder/bin:$HOME/.nodenv/bin:$HOME/bin:$HOME/.local/bin:usr/local/go/bin:$PATH:$HOME/.nodenv/versions/12.9.1/bin:$GOBIN"
+export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/go/bin:/usr/local/kubebuilder/bin:$HOME/.nodenv/bin:$HOME/bin:$HOME/.local/bin:usr/local/go/bin:$PATH:$HOME/.nodenv/versions/12.9.1/bin:$GOBIN:/usr/local/VSCode-linux-x64/bin:$HOME/.nodenv/versions/13.14.0/bin:/home/linuxbrew/.linuxbrew/bin"
 
 # Add nodenv/direnv hooks
 eval "$(direnv hook bash)"
@@ -24,3 +24,6 @@ eval "$(nodenv init -)"
 # Add bash completion scripts
 [[ -r "/usr/local/etc/bash_completion.d/pass" ]] && source "/usr/local/etc/bash_completion.d/pass"
 
+eval $($(brew --prefix)/bin/brew shellenv)
+source /home/linuxbrew/.linuxbrew/opt/chruby/share/chruby/chruby.sh
+source /home/linuxbrew/.linuxbrew/opt/chruby/share/chruby/auto.sh
