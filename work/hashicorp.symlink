@@ -1,5 +1,3 @@
-eval "$(tfcdev rc)"
-
 extract_token () {
   cat ~/.terraform.d/credentials.tfrc.json | jq '.credentials.'\"$1\"'.token' -r
 }
@@ -10,3 +8,6 @@ alias tfc_local_token='extract_token "$TFC_LOCAL"'
 alias tfc_local_hostname='echo $TFC_LOCAL'
 
 export NGROK_REGION=us
+export HOMEBREW_GITHUB_API_TOKEN="${GITHUB_TOKEN}"
+
+eval "$(tfcdev rc)"
