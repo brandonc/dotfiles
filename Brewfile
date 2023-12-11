@@ -16,13 +16,11 @@ brew 'nodenv'
 brew 'openssl'
 brew 'pass'
 brew 'tokei' # code language / analysis
-brew 'youtube-dl'
 brew 'rbenv'
 brew 'ruby-build'
 brew 'tfenv'
 brew 'gh'
 
 cask 'github'
-cask 'slack'
 cask 'visual-studio-code'
 cask 'rectangle' # window management
