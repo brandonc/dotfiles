@@ -1,6 +1,6 @@
-# Load ~/.extra, ~/.bash_prompt, ~/.exports, ~/.aliases and ~/.functions
-# ~/.extra can be used for settings you don’t want to commit
-for file in $HOME/.{bash_prompt,exports,aliases,functions,fzf.bash,mesosphere}; do
+# Load ~/.secret, ~/.bash_prompt, ~/.aliases and ~/.functions
+# ~/.secrets can be used for settings you don’t want to commit
+for file in $HOME/.{bash_prompt,aliases,functions,fzf.bash,hashicorp,secrets}; do
 	[ -r "$file" ] && source "$file"
 done
 unset file
@@ -8,6 +8,20 @@ unset file
 # Prefer US English and use UTF-8
 export LC_ALL="en_US.UTF-8"
 export LANG="en_US"
+
+# Make vim the default editor
+export EDITOR="code"
+# Don’t clear the screen after quitting a manual page
+export MANPAGER="less -X"
+
+# Larger bash history (allow 32³ entries; default is 500)
+export HISTSIZE=32768
+HISTCONTROL=ignorespace:ignoredups
+
+# timestamps for bash history. www.debian-administration.org/users/rossen/weblog/1
+# saved for later analysis
+HISTTIMEFORMAT='%F %T '
+export HISTTIMEFORMAT
 
 # Add tab completion for SSH hostnames based on ~/.ssh/config, ignoring wildcards
 [ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2)" scp sftp ssh
@@ -25,5 +39,3 @@ eval "$(nodenv init -)"
 [[ -r "/usr/local/etc/bash_completion.d/pass" ]] && source "/usr/local/etc/bash_completion.d/pass"
 
 eval $($(brew --prefix)/bin/brew shellenv)
-source /home/linuxbrew/.linuxbrew/opt/chruby/share/chruby/chruby.sh
-source /home/linuxbrew/.linuxbrew/opt/chruby/share/chruby/auto.sh

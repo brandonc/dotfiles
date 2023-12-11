@@ -2,4 +2,4 @@
 
 set -e
 
-nodenv init
+rbenv init

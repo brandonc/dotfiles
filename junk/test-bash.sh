@@ -1,3 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
 # version-test.sh
-echo $BASH_VERSION
+echo "$BASH_VERSION"
