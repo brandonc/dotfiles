@@ -4,12 +4,27 @@
 export LC_ALL="en_US.UTF-8"
 export LANG="en_US"
 
-# Load ~/.secrets, ~/.bash_prompt, ~/.exports, ~/.aliases, ~/.functions, etc
+# Load ~/.secrets, ~/.bash_prompt, ~/.aliases, ~/.functions, etc
 # ~/.secrets can be used for settings you don’t want to commit
-for file in $HOME/.{secrets,bash_prompt,exports,aliases,functions,fzf.bash,hashicorp}; do
+for file in $HOME/.{secrets,bash_prompt,aliases,functions,fzf.bash,hashicorp}; do
 	[ -r "$file" ] && source "$file"
 done
 unset file
+
+# Make vim the default editor
+export EDITOR="code"
+# Don’t clear the screen after quitting a manual page
+export MANPAGER="less -X"
+
+# Larger bash history (allow 32³ entries; default is 500)
+export HISTSIZE=32768
+export HISTFILESIZE=$HISTSIZE
+export HISTCONTROL=ignoredups
+
+# timestamps for bash history. www.debian-administration.org/users/rossen/weblog/1
+# saved for later analysis
+HISTTIMEFORMAT='%F %T '
+export HISTTIMEFORMAT
 
 # Add tab completion for SSH hostnames based on ~/.ssh/config, ignoring wildcards
 [ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2)" scp sftp ssh
@@ -22,8 +37,17 @@ export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/go/bin:$HOME/.nodenv/bin:
 # Add nodenv/direnv hooks
 eval "$(direnv hook bash)"
 eval "$(nodenv init -)"
+eval "$(rbenv init -)"
 
-ssh-add --apple-use-keychain "$HOME/.ssh/id_rsa"
+if test $(uname) = 'Darwin'
+then
+	ssh-add --apple-use-keychain "$HOME/.ssh/id_rsa"
+fi
+
+if test $(uname) = 'Linux'
+then
+	ssh-add "$HOME/.ssh/id_rsa"
+fi
 
 # Add bash completion scripts
 [[ -r "/usr/local/etc/bash_completion.d/pass" ]] && source "/usr/local/etc/bash_completion.d/pass"

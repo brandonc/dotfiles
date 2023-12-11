@@ -5,7 +5,7 @@ set -e
 install_homebrew () {
   echo 'installing homebrew'
 
-  if test ! $(which brew)
+  if test ! "$(which brew)"
   then
     if test "$(uname)" = "Darwin"
     then
@@ -17,10 +17,25 @@ install_homebrew () {
   fi
 }
 
+ensure_ssh () {
+  if test ! "$HOME/.ssh"
+  then
+    mkdir -p $HOME/.ssh
+    chmod 0700 $HOME/.ssh
+  fi
+
+  if test ! "$HOME/.ssh/id_rsa"
+  then
+    echo "Before continuing, ensuring SSH keypair is copied to .ssh/"
+    exit 1
+  fi
+}
+
 bootstrap_others () {
   find . -name bootstrap.sh | while read bootstrapper ; do echo "running ${bootstrapper}" ; sh -c "${bootstrapper}" ; done
 }
 
+ensure_ssh
 install_homebrew
 bootstrap_others
 

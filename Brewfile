@@ -18,10 +18,11 @@ brew 'pass'
 brew 'tokei' # code language / analysis
 brew 'youtube-dl'
 brew 'rbenv'
+brew 'ruby-build'
+brew 'tfenv'
+brew 'gh'
 
 cask 'github'
-cask 'postman'
 cask 'slack'
 cask 'visual-studio-code'
-cask 'firefox'
 cask 'rectangle' # window management

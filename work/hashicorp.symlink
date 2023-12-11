@@ -1,5 +1,4 @@
 eval "$(tfcdev rc)"
-eval "$(rbenv init -)"
 
 extract_token () {
   cat ~/.terraform.d/credentials.tfrc.json | jq '.credentials.'\"$1\"'.token' -r

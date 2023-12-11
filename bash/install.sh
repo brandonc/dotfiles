@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 if grep -q "/usr/local/bin/bash" "/etc/shells"; then
   echo 'Brew bash already installed'
 else
