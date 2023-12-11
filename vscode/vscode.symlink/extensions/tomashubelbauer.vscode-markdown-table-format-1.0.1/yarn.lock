@@ -402,7 +402,7 @@ esutils@^2.0.2:
 
 event-stream@^3.3.1, event-stream@~3.3.4:
   version "3.3.4"
-  resolved "http://registry.npmjs.org/event-stream/-/event-stream-3.3.4.tgz#4ab4c9a0f5a54db9338b4c34d86bfce8f4b35571"
+  resolved "https://registry.npmjs.org/event-stream/-/event-stream-3.3.4.tgz#4ab4c9a0f5a54db9338b4c34d86bfce8f4b35571"
   dependencies:
     duplexer "~0.1.1"
     from "~0"
@@ -1106,9 +1106,9 @@ map-stream@~0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/map-stream/-/map-stream-0.1.0.tgz#e56aa94c4c8055a16404a0674b78f215f7c8e194"
 
-markdown-dom@^0.0.4:
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/markdown-dom/-/markdown-dom-0.0.4.tgz#eaef72324626db6bec4f496e56b620e5b4579333"
+markdown-dom@0.0.5:
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/markdown-dom/-/markdown-dom-0.0.5.tgz#265a9bbb65bd2f3a8804573c0668fd98859b5ea2"
 
 merge-stream@^1.0.0:
   version "1.0.1"
@@ -1469,8 +1469,8 @@ safe-buffer@^5.0.1, safe-buffer@^5.1.1, safe-buffer@~5.1.0, safe-buffer@~5.1.1:
   resolved "https://registry.yarnpkg.com/safe-buffer/-/safe-buffer-5.1.1.tgz#893312af69b2123def71f57889001671eeb2c853"
 
 semver@^5.3.0, semver@^5.4.1:
-  version "5.5.0"
-  resolved "https://registry.yarnpkg.com/semver/-/semver-5.5.0.tgz#dc4bbc7a6ca9d916dee5d43516f0092b58f7b8ab"
+  version "5.7.2"
+  resolved "https://registry.yarnpkg.com/semver/-/semver-5.7.2.tgz#48d55db737c3287cd4835e17fa13feace1c41ef8"
 
 sntp@1.x.x:
   version "1.0.9"
