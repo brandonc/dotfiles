@@ -1,0 +1,55 @@
+{
+	"name": "inbedby7pm",
+	"displayName": "In Bed By 7pm",
+	"description": "A color theme for non-night owls",
+	"version": "0.4.0",
+	"publisher": "sdras",
+	"license": "SEE LICENSE IN LICENSE.md",
+	"engines": {
+		"vscode": "^1.49.0"
+	},
+	"categories": [
+		"Themes"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/sdras/inbedby7pm"
+	},
+	"icon": "sleep-icon.jpg",
+	"galleryBanner": {
+		"color": "#41678b",
+		"theme": "dark"
+	},
+	"scripts": {
+		"publish": "vsce publish"
+	},
+	"keywords": [
+		"Theme",
+		"Dark Theme",
+		"In Bed By 7pm",
+		"InBedBy7pm",
+		"Soothing",
+		"Palette",
+		"Sleepy"
+	],
+	"contributes": {
+		"themes": [
+			{
+				"label": "In Bed by 7pm",
+				"uiTheme": "vs-dark",
+				"path": "./themes/in-bed-by-7.json"
+			}
+		]
+	},
+	"__metadata": {
+		"id": "7b1b870a-823b-43dc-8bd3-9ec2981cc7e9",
+		"publisherId": "addae8ad-0041-44f2-a2d4-cbebe4912d50",
+		"publisherDisplayName": "sarah.drasner",
+		"targetPlatform": "undefined",
+		"updated": false,
+		"isPreReleaseVersion": false,
+		"installedTimestamp": 1702323049085,
+		"pinned": false,
+		"preRelease": false
+	}
+}
