@@ -794,11 +794,12 @@
 		"id": "4a23294b-fd16-4c51-9759-da9936474cf8",
 		"publisherId": "a8dd781d-e144-400a-943c-417165981be2",
 		"publisherDisplayName": "HashiCorp",
-		"targetPlatform": "linux-x64",
-		"updated": false,
+		"targetPlatform": "darwin-x64",
+		"updated": true,
 		"isPreReleaseVersion": false,
-		"installedTimestamp": 1702323047002,
+		"installedTimestamp": 1702331829673,
 		"pinned": false,
-		"preRelease": false
+		"preRelease": false,
+		"isApplicationScoped": false
 	}
 }
