@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 extract_token () {
   cat ~/.terraform.d/credentials.tfrc.json | jq '.credentials.'\"$1\"'.token' -r
 }
@@ -6,6 +8,10 @@ alias tfc_token='extract_token "app.terraform.io"'
 alias tfc_staging_token='extract_token "app.staging.terraform.io"'
 alias tfc_local_token='extract_token "$TFC_LOCAL"'
 alias tfc_local_hostname='echo $TFC_LOCAL'
+
+alias cdtfe="cd ~/hashicorp/terraform-provider-tfe"
+alias cdatl="cd ~/hashicorp/atlas"
+alias cdtf="cd ~/hashicorp/terraform"
 
 export NGROK_REGION=us
 export HOMEBREW_GITHUB_API_TOKEN="${GITHUB_TOKEN}"
