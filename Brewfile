@@ -20,9 +20,10 @@ brew 'pass'
 brew 'tokei' # code language / analysis
 brew 'rbenv'
 brew 'ruby-build'
+brew 'shellcheck'
 brew 'tfenv'
 
 cask 'github'
 cask 'visual-studio-code'
 cask 'rectangle' # window management
-# cask 'iterm2'
+cask 'iterm2'
