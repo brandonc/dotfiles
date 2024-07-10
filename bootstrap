@@ -31,10 +31,20 @@ ensure_ssh () {
   fi
 }
 
+ensure_bash () {
+  if [[ "$SHELL" != "/bin/bash" ]]
+  then
+    chsh -s /bin/bash
+    echo "Before continuing, restart the terminal and re-run bootstrap."
+    exit 1
+  fi
+}
+
 bootstrap_others () {
   find . -name bootstrap.sh | while read bootstrapper ; do echo "running ${bootstrapper}" ; sh -c "${bootstrapper}" ; done
 }
 
+ensure_bash
 ensure_ssh
 install_homebrew
 bootstrap_others

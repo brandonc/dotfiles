@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
-if grep -q "/usr/local/bin/bash" "/etc/shells"; then
+if grep -q "$HOMEBREW_PREFIX/bin/bash" "/etc/shells"; then
   echo 'Brew bash already installed'
 else
   # Add the new shell to the list of allowed shells
-  sudo bash -c 'echo /usr/local/bin/bash >> /etc/shells'
+  sudo bash -c "echo $HOMEBREW_PREFIX/bin/bash >> /etc/shells"
   # Change to the new shell
-  chsh -s /usr/local/bin/bash
+  chsh -s $HOMEBREW_PREFIX/bin/bash
 fi

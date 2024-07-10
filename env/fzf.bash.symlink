@@ -1,17 +1,14 @@
 # Setup fzf
 # ---------
-if [[ ! "$PATH" == */usr/local/opt/fzf/bin* ]]; then
-  export PATH="$PATH:/usr/local/opt/fzf/bin"
-fi
 
-# Auto-completion
+# Auto-completion/opt/homebrew/bin/fzf
 # ---------------
-[[ $- == *i* ]] && source "/usr/local/opt/fzf/shell/completion.bash" 2> /dev/null
+[[ $- == *i* ]] && source "$HOMEBREW_PREFIX/opt/fzf/shell/completion.bash" 2> /dev/null
 
 # Key bindings
 # ------------
 if test "$(uname)" = "Darwin"; then
-  source "/usr/local/opt/fzf/shell/key-bindings.bash"
+  source "$HOMEBREW_PREFIX/opt/fzf/shell/key-bindings.bash"
 else
   source "/usr/share/doc/fzf/examples/key-bindings.bash"
 fi

@@ -5,6 +5,9 @@ export LC_ALL="en_US.UTF-8"
 export LANG="en_US"
 export GPG_TTY=$(tty)
 
+# Initialize brew
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 # Load ~/.secrets, ~/.bash_prompt, ~/.aliases, ~/.functions, etc
 # ~/.secrets can be used for settings you don’t want to commit
 for file in $HOME/.{secrets,bash_prompt,aliases,functions,fzf.bash,hashicorp}; do
@@ -13,7 +16,7 @@ done
 unset file
 
 # Make vim the default editor
-export EDITOR="code"
+export EDITOR="code --wait"
 # Don’t clear the screen after quitting a manual page
 export MANPAGER="less -X"
 
@@ -33,7 +36,7 @@ export HISTTIMEFORMAT
 # Ensure /usr/local/bin appears before /usr/bin
 export GOBIN="$HOME/go/bin"
 export GOPATH="$HOME/go"
-export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/go/bin:$HOME/.nodenv/bin:$HOME/bin:$HOME/.local/bin:usr/local/go/bin:$PATH:$GOBIN"
+export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/go/bin:$HOME/.nodenv/bin:$HOME/bin:$HOME/.local/bin:usr/local/go/bin:$HOMEBREW_PREFIX/opt/openjdk/bin:$HOMEBREW_PREFIX/opt/libpq/bin:$PATH:$GOBIN"
 
 # Add nodenv/direnv hooks
 eval "$(direnv hook bash)"
@@ -54,3 +57,7 @@ fi
 [[ -r "/usr/local/etc/bash_completion.d/pass" ]] && source "/usr/local/etc/bash_completion.d/pass"
 
 export PATH="/usr/local/opt/openssl@3/bin:$PATH"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH=$BUN_INSTALL/bin:$PATH

@@ -3,7 +3,7 @@
 # @gf3's Bash Prompt, inspired by “Extravagant Zsh Prompt”
 # Shamelessly copied from https://github.com/gf3/dotfiles
 
-default_username='brandonc'
+default_username='bcroft'
 
 export PROMPT_COMMAND='history -a; history -r'
 
