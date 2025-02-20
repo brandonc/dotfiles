@@ -51,7 +51,6 @@
 [url "git://gist.github.com/"]
 	insteadOf = "gist:"
 
-
 [user]
 	email = brandon.croft@gmail.com
 	name = Brandon Croft

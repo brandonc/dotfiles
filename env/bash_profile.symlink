@@ -45,7 +45,7 @@ eval "$(rbenv init -)"
 
 if test $(uname) = 'Darwin'
 then
-	ssh-add --apple-use-keychain "$HOME/.ssh/id_rsa"
+	ssh-add --apple-use-keychain "$HOME/.ssh/id_rsa_brandonc"
 fi
 
 if test $(uname) = 'Linux'
@@ -61,3 +61,6 @@ export PATH="$HOMEBREW_PREFIX/opt/openssl@3/bin:$PATH"
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH=$BUN_INSTALL/bin:$PATH
+
+# gcloud sdk
+source "$HOME/google-cloud-sdk/path.bash.inc"
