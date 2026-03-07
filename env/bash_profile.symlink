@@ -10,7 +10,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Load ~/.secrets, ~/.bash_prompt, ~/.aliases, ~/.functions, etc
 # ~/.secrets can be used for settings you don’t want to commit
-for file in $HOME/.{secrets,bash_prompt,aliases,functions,fzf.bash,hashicorp}; do
+for file in $HOME/.{secrets,aliases,functions,fzf.bash,hashicorp,bash_prompt}; do
 	[ -r "$file" ] && source "$file"
 done
 unset file
@@ -64,3 +64,11 @@ export PATH=$BUN_INSTALL/bin:$PATH
 
 # gcloud sdk
 source "$HOME/google-cloud-sdk/path.bash.inc"
+
+# Ghostty shell integration for Bash. This should be at the top of your bashrc!
+if [ -n "${GHOSTTY_RESOURCES_DIR}" ]; then
+    builtin source "${GHOSTTY_RESOURCES_DIR}/shell-integration/bash/ghostty.bash"
+fi
+
+# Added by Antigravity
+export PATH="/Users/bcroft/.antigravity/antigravity/bin:$PATH"

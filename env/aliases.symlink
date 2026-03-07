@@ -49,3 +49,5 @@ else
 fi
 
 alias be="bundle exec"
+
+alias ls="eza --icons --grid --group-directories-first"

@@ -1,0 +1,71 @@
+# Prefix: Ctrl-Space (avoids conflicts with readline Ctrl-a)
+set-option -g prefix C-Space
+bind-key C-Space send-prefix
+
+# Enable mouse support
+set -g mouse on
+
+# Start window/pane numbering at 1 (not 0)
+set -g base-index 1
+setw -g pane-base-index 1
+
+# Easy window/pane navigation
+bind -n M-h select-pane -L
+bind -n M-j select-pane -D
+bind -n M-k select-pane -U
+bind -n M-l select-pane -R
+
+# Reload config
+bind r source-file ~/.tmux.conf \; display "Config reloaded"
+
+# Focus events enabled for terminals that support them
+set -g focus-events on
+
+# Refresh status bar every one second
+set -g status-interval 1
+
+set -g default-terminal "screen-256color"
+set -ga terminal-overrides ",xterm-256color:Tc"
+
+# Split pane, v vertical, s horizontal
+bind v split-window -h -c "#{pane_current_path}"
+bind s split-window -v -c "#{pane_current_path}"
+
+# Window navigation
+bind space next-window
+bind bspace previous-window
+bind n next-window
+bind p previous-window
+
+# MacOS clipboard integration
+set -g set-clipboard on
+
+# Plugins / Catppuccin
+# ---
+
+set -g @plugin 'tmux-plugins/tpm'
+set -g @plugin 'catppuccin/tmux#v2.1.3'
+set -g @plugin 'tmux-plugins/tmux-sensible'
+set -g @plugin 'tmux-plugins/tmux-cpu'
+set -g @plugin 'tmux-plugins/tmux-battery'
+
+set -g @catppuccin_flavor 'mocha'
+set -g @catppuccin_date_time_text " %Y-%m-%d %H:%M:%S"
+
+# Allow enough room for all status-right modules
+set -g status-right-length 200
+
+# Build status-right with modules (must be AFTER loading theme)
+set -g status-right "#{E:@catppuccin_status_host}"
+set -agF status-right "#{E:@catppuccin_status_battery}"
+set -agF status-right "#{E:@catppuccin_status_cpu}"
+set -agF status-right "#{E:@catppuccin_status_date_time}"
+
+# Initialize plugins (TPM must be last)
+run ~/.config/tmux/plugins/tmux-battery/battery.tmux
+run ~/.config/tmux/plugins/tmux-cpu/cpu.tmux
+run ~/.config/tmux/plugins/tpm/tpm
+
+# Activity monitoring
+setw -g monitor-activity on
+set -g visual-activity on

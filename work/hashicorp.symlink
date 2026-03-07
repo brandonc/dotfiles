@@ -23,3 +23,17 @@ if [ -f '/Users/bcroft/Downloads/google-cloud-sdk/path.bash.inc' ]; then . '/Use
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/bcroft/Downloads/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/bcroft/Downloads/google-cloud-sdk/completion.bash.inc'; fi
+
+claudebedrock() {
+	ANTHROPIC_DEFAULT_SONNET_MODEL="us.anthropic.claude-sonnet-4-6" \
+  ANTHROPIC_DEFAULT_HAIKU_MODEL="us.anthropic.claude-haiku-4-5-20251001-v1:0" \
+  ANTHROPIC_DEFAULT_OPUS_MODEL="us.anthropic.claude-opus-4-6-v1" \
+  ANTHROPIC_MODEL="opusplan" \
+  AWS_PROFILE=${AWS_PROFILE:-sandbox_bedrock} \
+  CLAUDE_CODE_USE_BEDROCK=1 \
+  DISABLE_PROMPT_CACHING=0 \
+  CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC=1 \
+  CLAUDE_CODE_MAX_OUTPUT_TOKENS=${CLAUDE_CODE_MAX_OUTPUT_TOKENS:-16384} \
+  MAX_THINKING_TOKENS=${MAX_THINKING_TOKENS:-4096} \
+  claude "$1"
+}
